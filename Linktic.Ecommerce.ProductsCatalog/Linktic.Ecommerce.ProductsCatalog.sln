@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linktic.Ecommerce.ProductsCatalog.Api", "Linktic.Ecommerce.ProductsCatalog.Api\Linktic.Ecommerce.ProductsCatalog.Api.csproj", "{5CA41D90-F8C4-4F7B-98E8-232F0940D5FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{438DE22F-EE68-4CC1-9A5D-809820327527}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linktic.Ecommerce.ProductsCatalog.Business", "Linktic.Ecommerce.ProductsCatalog.Business\Linktic.Ecommerce.ProductsCatalog.Business.csproj", "{2C915FF1-004E-413B-BA08-89A6D5346B65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linktic.Ecommerce.ProductsCatalog.Infrastructure", "Linktic.Ecommerce.ProductsCatalog.Infrastructure\Linktic.Ecommerce.ProductsCatalog.Infrastructure.csproj", "{FC60361F-12D7-431D-9863-8122348D5040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linktic.Ecommerce.ProductsCatalog.Domain", "Linktic.Ecommerce.ProductsCatalog.Domain\Linktic.Ecommerce.ProductsCatalog.Domain.csproj", "{8D6D0750-AADE-4D37-AE6C-63AC2A669C5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CA41D90-F8C4-4F7B-98E8-232F0940D5FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA41D90-F8C4-4F7B-98E8-232F0940D5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA41D90-F8C4-4F7B-98E8-232F0940D5FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA41D90-F8C4-4F7B-98E8-232F0940D5FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C915FF1-004E-413B-BA08-89A6D5346B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C915FF1-004E-413B-BA08-89A6D5346B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C915FF1-004E-413B-BA08-89A6D5346B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C915FF1-004E-413B-BA08-89A6D5346B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC60361F-12D7-431D-9863-8122348D5040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC60361F-12D7-431D-9863-8122348D5040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC60361F-12D7-431D-9863-8122348D5040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC60361F-12D7-431D-9863-8122348D5040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D6D0750-AADE-4D37-AE6C-63AC2A669C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D6D0750-AADE-4D37-AE6C-63AC2A669C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D6D0750-AADE-4D37-AE6C-63AC2A669C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D6D0750-AADE-4D37-AE6C-63AC2A669C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
