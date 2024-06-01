@@ -6,7 +6,7 @@ namespace Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Containers;
 public class LocalStackContainer
 {
     private readonly IContainer _container;
-    public static string GetConnectionString() => "http://localhost:4567";
+    public static string GetConnectionString() => "http://localhost:4566";
 
     public LocalStackContainer()
     {
@@ -17,18 +17,14 @@ public class LocalStackContainer
             .WithEnvironment("SERVICES", "dynamodb")
             .WithEnvironment("DOCKER_HOST", "unix:///var/run/docker.sock")
             .WithEnvironment("DEBUG", "1")
-            .WithPortBinding(4567, 4567);
-            
+            .WithPortBinding(4566, 4566);
+
         _container = localStackBuilder.Build();
     }
 
     public async Task InitializeAsync()
     {
         await _container.StartAsync();
-    }
-    public async Task DisposeAsync()
-    {
-        await _container.StopAsync();
     }
     
 }

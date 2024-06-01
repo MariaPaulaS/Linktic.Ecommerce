@@ -2,6 +2,7 @@
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Containers;
+using Serilog;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Seeders;
 
@@ -18,18 +19,26 @@ public class DynamoDbSeeder
 
     public static async Task CreateTable()
     {
-        var request = new CreateTableRequest()
+        try
         {
-            TableName = "ProductsCatalog",
-            KeySchema = [new KeySchemaElement("Id", KeyType.HASH)],
-            AttributeDefinitions =
-            [
-                new AttributeDefinition { AttributeName = "Id", AttributeType = ScalarAttributeType.S }
-            ],
-            ProvisionedThroughput = new ProvisionedThroughput { ReadCapacityUnits = 5, WriteCapacityUnits = 5 }
-        };
+            var request = new CreateTableRequest()
+            {
+                TableName = "ProductsCatalog",
+                KeySchema = [new KeySchemaElement("Id", KeyType.HASH)],
+                AttributeDefinitions =
+                [
+                    new AttributeDefinition { AttributeName = "Id", AttributeType = ScalarAttributeType.S }
+                ],
+                ProvisionedThroughput = new ProvisionedThroughput { ReadCapacityUnits = 5, WriteCapacityUnits = 5 }
+            };
 
-        await DynamoDbClient.CreateTableAsync(request);
+             await DynamoDbClient.CreateTableAsync(request);
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Something was wrong creating the table in DynamoDB, details: {e.Message}");
+        }
+
     }
 
     public static async Task PopulateProductsCatalogTable()
@@ -52,6 +61,6 @@ public class DynamoDbSeeder
             }
         };
         
-        var response= await DynamoDbClient.PutItemAsync(request);
+        await DynamoDbClient.PutItemAsync(request);
     }
 }

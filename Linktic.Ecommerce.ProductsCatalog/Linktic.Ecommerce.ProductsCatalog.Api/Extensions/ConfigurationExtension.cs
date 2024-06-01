@@ -1,6 +1,7 @@
 ﻿using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Containers;
 using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Seeders;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Api.Extensions;
 
@@ -14,7 +15,7 @@ public static class ConfigurationExtension
         await LocalStackTestContainer.InitializeAsync();
         await DynamoDbSeeder.CreateTable();
         await DynamoDbSeeder.PopulateProductsCatalogTable();
-        
+        Log.Information("Ready to run!");
     }
 
 }
