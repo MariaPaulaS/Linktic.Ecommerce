@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Linktic.Ecommerce.ProductsCatalog.Domain.Utils;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +22,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         ConfigurationUtils.Initialize(Configuration);
-        IoCServiceCollection.ConfigureServices(services, Configuration);
+        //IoCServiceCollection.ConfigureServices(services, Configuration);
         ConfigureLogging();
         services.AddCors(o => o.AddPolicy("AllowCorsPolicy", builder =>
         {
@@ -57,16 +58,11 @@ public class Startup
         var levelSwitch = new LoggingLevelSwitch
         {
             MinimumLevel = LogEventLevel.Information
-                .ToString()
-                .Equals(ConfigurationUtils.LoggingLevel)
-                ? LogEventLevel.Information
-                : LogEventLevel.Error
         };
         
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel
             .ControlledBy(levelSwitch)
-            .Enrich.With(new ThreadIdEnricher())
             .WriteTo.Console(
                 outputTemplate: "{Timestamp:HH:mm} [{Level}] ({ThreadId}) {Message}{NewLine}{Exception}")
             .CreateLogger();

@@ -7,7 +7,7 @@ public static class ConfigurationExtension
     private static LocalStackContainer? _localStackTestContainer;
     private static LocalStackContainer LocalStackTestContainer => _localStackTestContainer ??= new LocalStackContainer();
     
-    public static async Task ConfigureLocalStack(this IConfigurationBuilder configuration)
+    public static async Task ConfigureLocalRunning(this IConfigurationBuilder configuration)
     {
         await LocalStackTestContainer.InitializeAsync();
         
@@ -16,6 +16,11 @@ public static class ConfigurationExtension
             .AddEnvironmentVariables() 
             .Build();
 
+        configuration.AddSystemsManager("/ecommerce", TimeSpan.FromSeconds(500));
+    }
+    
+    public static async Task ConfigureParameterStore(this IConfigurationBuilder configuration)
+    {
         configuration.AddSystemsManager("/ecommerce", TimeSpan.FromSeconds(500));
     }
 }

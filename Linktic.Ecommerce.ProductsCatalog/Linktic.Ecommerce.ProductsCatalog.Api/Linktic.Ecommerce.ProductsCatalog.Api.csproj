@@ -27,4 +27,8 @@
       <PackageReference Include="Testcontainers" Version="3.8.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Linktic.Ecommerce.ProductsCatalog.Domain\Linktic.Ecommerce.ProductsCatalog.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

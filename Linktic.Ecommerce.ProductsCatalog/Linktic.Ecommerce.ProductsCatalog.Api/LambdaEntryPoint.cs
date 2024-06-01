@@ -1,26 +1,25 @@
-﻿using Linktic.Ecommerce.ProductsCatalog.Api;
+﻿using Amazon.Lambda.AspNetCoreServer;
+using Amazon.Lambda.Core;
 using Linktic.Ecommerce.ProductsCatalog.Api.Extensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-public static class Program
-{
-    public static void Main(string[] args)
-    {
-        Log.Information("Start Running Products Catalog Lambda");
-        CreateHostBuilder(args).Build().Run();
-    }
+[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
+namespace Linktic.Ecommerce.ProductsCatalog.Api;
 
-    private static IHostBuilder CreateHostBuilder(string[] args)
+public class LambdaEntryPoint : ApplicationLoadBalancerFunction
+{
+    protected override void Init(IHostBuilder builder)
     {
         var pathToContentRoot = AppDomain.CurrentDomain.BaseDirectory;
         var configurationBuilder = new ConfigurationBuilder();
-        _ = configurationBuilder.ConfigureLocalRunning();
+        configurationBuilder.ConfigureParameterStore();
         var root = configurationBuilder.Build();
 
-        return Host.CreateDefaultBuilder(args)
+
+        builder
             .UseSerilog()
             .ConfigureAppConfiguration((_, builder) =>
             {
