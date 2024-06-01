@@ -1,11 +1,19 @@
-﻿using Amazon.DynamoDBv2;
+﻿using Amazon;
+using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Seeders;
 
 public class DynamoDbSeeder
 {
-    public static AmazonDynamoDBClient DynamoDbClient => new AmazonDynamoDBClient("123", "123");
+    private static readonly AmazonDynamoDBConfig _dynamoDbConfig = new AmazonDynamoDBConfig
+    {
+        RegionEndpoint = RegionEndpoint.USEast1,
+        UseHttp = true,
+        ServiceURL = LocalStackContainer.GetConnectionString()
+    };
+    
+    public static AmazonDynamoDBClient DynamoDbClient => new AmazonDynamoDBClient("123", "123", _dynamoDbConfig);
 
     public static async Task CreateTable()
     {
