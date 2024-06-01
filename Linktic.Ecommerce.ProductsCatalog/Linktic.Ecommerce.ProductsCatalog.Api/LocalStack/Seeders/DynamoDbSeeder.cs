@@ -32,7 +32,7 @@ public class DynamoDbSeeder
         await DynamoDbClient.CreateTableAsync(request);
     }
 
-    private async Task PopulateProductsCatalogTable()
+    public static async Task PopulateProductsCatalogTable()
     {
         await PutItemIntoProductsCatalogTable("1", "Star necklace");
         await PutItemIntoProductsCatalogTable("2", "Leaf earrings");
