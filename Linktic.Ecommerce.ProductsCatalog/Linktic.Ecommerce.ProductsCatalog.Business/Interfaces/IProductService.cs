@@ -4,5 +4,5 @@ namespace Linktic.Ecommerce.ProductsCatalog.Business.Interfaces;
 
 public interface IProductService
 {
-    List<Product> GetAllProducts();
+    Task<List<Product>> GetAllProducts();
 }

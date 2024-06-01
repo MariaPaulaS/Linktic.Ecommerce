@@ -6,8 +6,8 @@ namespace Linktic.Ecommerce.ProductsCatalog.Infrastructure.Repositories;
 
 public class ProductRepository(IDatabaseClient databaseClient) : IProductRepository
 {
-    public Task<List<Product>> GetAllProducts()
+    public async Task<List<Product>> GetAllProducts()
     {
-        return databaseClient.GetItemsList();
+        return await databaseClient.GetItemsList();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Seeders;
+﻿using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Containers;
+using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Seeders;
 using Microsoft.Extensions.Configuration;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Api.Extensions;
@@ -14,16 +15,6 @@ public static class ConfigurationExtension
         await DynamoDbSeeder.CreateTable();
         await DynamoDbSeeder.PopulateProductsCatalogTable();
         
-        configuration.SetBasePath(System.AppContext.BaseDirectory)
-            .AddJsonFile("appsettings.json")
-            .AddEnvironmentVariables() 
-            .Build();
+    }
 
-        configuration.AddSystemsManager("/ecommerce", TimeSpan.FromSeconds(500));
-    }
-    
-    public static async Task ConfigureParameterStore(this IConfigurationBuilder configuration)
-    {
-        configuration.AddSystemsManager("/ecommerce", TimeSpan.FromSeconds(500));
-    }
 }

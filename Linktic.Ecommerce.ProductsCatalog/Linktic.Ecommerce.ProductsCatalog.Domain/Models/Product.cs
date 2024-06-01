@@ -2,7 +2,7 @@
 
 namespace Linktic.Ecommerce.ProductsCatalog.Domain.Models;
 
-[DynamoDBTable("productsCatalog")]
+[DynamoDBTable("ProductsCatalog")]
 public class Product
 {
     [DynamoDBHashKey]

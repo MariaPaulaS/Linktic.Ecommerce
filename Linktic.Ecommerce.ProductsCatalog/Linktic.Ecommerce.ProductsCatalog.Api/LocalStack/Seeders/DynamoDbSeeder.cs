@@ -1,6 +1,7 @@
 ﻿using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
+using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Containers;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Seeders;
 
@@ -23,8 +24,7 @@ public class DynamoDbSeeder
             KeySchema = [new KeySchemaElement("Id", KeyType.HASH)],
             AttributeDefinitions =
             [
-                new AttributeDefinition { AttributeName = "Id", AttributeType = ScalarAttributeType.S },
-                new AttributeDefinition { AttributeName = "Productname", AttributeType = ScalarAttributeType.S }
+                new AttributeDefinition { AttributeName = "Id", AttributeType = ScalarAttributeType.S }
             ],
             ProvisionedThroughput = new ProvisionedThroughput { ReadCapacityUnits = 5, WriteCapacityUnits = 5 }
         };
@@ -48,10 +48,10 @@ public class DynamoDbSeeder
             Item = new Dictionary<string, AttributeValue>()
             {
                 { "Id", new AttributeValue() { S = id } },
-                { "Productname", new AttributeValue() { S = productname } }
+                { "ProductName", new AttributeValue() { S = productname } }
             }
         };
         
-        await DynamoDbClient.PutItemAsync(request);
+        var response= await DynamoDbClient.PutItemAsync(request);
     }
 }

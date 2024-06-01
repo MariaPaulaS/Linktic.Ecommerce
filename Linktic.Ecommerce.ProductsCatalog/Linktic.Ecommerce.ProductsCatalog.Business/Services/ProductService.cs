@@ -1,12 +1,13 @@
 ﻿using Linktic.Ecommerce.ProductsCatalog.Business.Interfaces;
 using Linktic.Ecommerce.ProductsCatalog.Domain.Models;
+using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Repositories;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Business.Services;
 
-public class ProductService() : IProductService
+public class ProductService(IProductRepository productRepository) : IProductService
 {
-    public List<Product> GetAllProducts()
+    public async Task<List<Product>> GetAllProducts()
     {
-        throw new NotImplementedException();
+        return await productRepository.GetAllProducts();
     }
 }

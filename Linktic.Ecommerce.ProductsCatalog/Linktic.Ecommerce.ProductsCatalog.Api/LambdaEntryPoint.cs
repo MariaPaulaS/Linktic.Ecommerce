@@ -15,10 +15,8 @@ public class LambdaEntryPoint : ApplicationLoadBalancerFunction
     {
         var pathToContentRoot = AppDomain.CurrentDomain.BaseDirectory;
         var configurationBuilder = new ConfigurationBuilder();
-        configurationBuilder.ConfigureParameterStore();
         var root = configurationBuilder.Build();
-
-
+        
         builder
             .UseSerilog()
             .ConfigureAppConfiguration((_, builder) =>

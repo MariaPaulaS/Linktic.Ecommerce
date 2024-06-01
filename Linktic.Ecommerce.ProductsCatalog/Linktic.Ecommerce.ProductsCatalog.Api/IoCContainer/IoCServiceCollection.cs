@@ -6,9 +6,10 @@ namespace Linktic.Ecommerce.ProductsCatalog.Api.IoCContainer;
 
 public class IoCServiceCollection
 {
-    public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+    public static void ConfigureServices(IServiceCollection services)
     {
         services.ConfigureClients();
         services.ConfigureRepositories();
+        services.ConfigureServices();
     }
 }
