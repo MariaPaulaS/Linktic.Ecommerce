@@ -1,4 +1,5 @@
-﻿using Linktic.Ecommerce.ProductsCatalog.Domain.Utils;
+﻿using Linktic.Ecommerce.ProductsCatalog.Api.IoCContainer;
+using Linktic.Ecommerce.ProductsCatalog.Domain.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +23,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         ConfigurationUtils.Initialize(Configuration);
-        //IoCServiceCollection.ConfigureServices(services, Configuration);
+        IoCServiceCollection.ConfigureServices(services, Configuration);
         ConfigureLogging();
         services.AddCors(o => o.AddPolicy("AllowCorsPolicy", builder =>
         {

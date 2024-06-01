@@ -29,6 +29,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Linktic.Ecommerce.ProductsCatalog.Domain\Linktic.Ecommerce.ProductsCatalog.Domain.csproj" />
+      <ProjectReference Include="..\Linktic.Ecommerce.ProductsCatalog.Infrastructure\Linktic.Ecommerce.ProductsCatalog.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
