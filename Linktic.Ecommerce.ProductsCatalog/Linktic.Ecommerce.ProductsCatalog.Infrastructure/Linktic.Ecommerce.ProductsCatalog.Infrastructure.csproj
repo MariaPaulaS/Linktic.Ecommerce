@@ -8,4 +8,12 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.303.15" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Linktic.Ecommerce.ProductsCatalog.Domain\Linktic.Ecommerce.ProductsCatalog.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
