@@ -1,7 +1,6 @@
 ﻿using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
-using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Containers;
 using Serilog;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Seeders;
@@ -12,7 +11,7 @@ public class DynamoDbSeeder
     {
         RegionEndpoint = RegionEndpoint.USEast1,
         UseHttp = true,
-        ServiceURL = LocalStackContainer.GetConnectionString()
+        ServiceURL = "http://localhost:4566"
     };
     
     public static AmazonDynamoDBClient DynamoDbClient => new AmazonDynamoDBClient("123", "123", _dynamoDbConfig);
