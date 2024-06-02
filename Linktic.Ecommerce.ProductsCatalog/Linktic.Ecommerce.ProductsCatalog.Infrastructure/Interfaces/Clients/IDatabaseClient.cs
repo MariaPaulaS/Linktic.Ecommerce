@@ -1,11 +1,10 @@
-﻿using Amazon.DynamoDBv2.DocumentModel;
-using Linktic.Ecommerce.ProductsCatalog.Domain.Models;
+﻿using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
 
-namespace Linktic.Ecommerce.ProductsCatalog.Domain.Interfaces;
+namespace Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Clients;
 
 public interface IDatabaseClient
 {
-    Task<List<Product>> GetItemsList();
-    Task UpdateItemQuantity(string id, int newQuantity);
-    Task<Product> GetItemById(string id);
+    public IAmazonDynamoDB GetConnection();
+    public DynamoDBContext GetContext();
 }

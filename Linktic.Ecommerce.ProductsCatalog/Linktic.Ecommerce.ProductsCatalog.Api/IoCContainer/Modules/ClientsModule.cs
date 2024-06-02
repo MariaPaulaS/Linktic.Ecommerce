@@ -1,7 +1,7 @@
 ﻿using Amazon.DynamoDBv2;
 using Linktic.Ecommerce.ProductsCatalog.Api.LocalStack.Seeders;
-using Linktic.Ecommerce.ProductsCatalog.Domain.Interfaces;
 using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Clients;
+using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Clients;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Api.IoCContainer.Modules;

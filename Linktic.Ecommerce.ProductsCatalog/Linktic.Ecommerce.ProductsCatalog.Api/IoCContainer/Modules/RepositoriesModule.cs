@@ -1,4 +1,4 @@
-﻿using Linktic.Ecommerce.ProductsCatalog.Domain.Interfaces;
+﻿using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Clients;
 using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Repositories;
 using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
