@@ -7,9 +7,9 @@ namespace Linktic.Ecommerce.OrdersManagement.Business.Services;
 
 public class OrderService(IOrderRepository orderRepository): IOrderService
 {
-    public Task<List<Order>> GetAllOrders()
+    public async Task<List<Order>> GetAllOrders()
     {
-        throw new NotImplementedException();
+        return await orderRepository.GetAllOrders();
     }
 
     public Task CreateNewOrder(CreateOrderRequest createOrderRequest)

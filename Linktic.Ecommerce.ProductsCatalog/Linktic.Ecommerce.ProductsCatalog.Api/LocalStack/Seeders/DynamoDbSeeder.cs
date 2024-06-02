@@ -42,13 +42,13 @@ public class DynamoDbSeeder
 
     public static async Task PopulateProductsCatalogTable()
     {
-        await PutItemIntoProductsCatalogTable("1", "Star necklace", 26);
-        await PutItemIntoProductsCatalogTable("2", "Leaf earrings", 22);
-        await PutItemIntoProductsCatalogTable("3", "Blue checkered jacket", 0);
-        await PutItemIntoProductsCatalogTable("4", "Red checkered jacket", 0);
+        await PutItemIntoProductsCatalogTable("1", "Star necklace", 10000,  26);
+        await PutItemIntoProductsCatalogTable("2", "Leaf earrings", 10000, 22);
+        await PutItemIntoProductsCatalogTable("3", "Blue checkered jacket", 45000,0);
+        await PutItemIntoProductsCatalogTable("4", "Red checkered jacket", 35000,0);
     }
     
-    private static async Task PutItemIntoProductsCatalogTable(string id, string productname, int quantity)
+    private static async Task PutItemIntoProductsCatalogTable(string id, string productname, int unitPrice, int quantity)
     {
 
         var request = new PutItemRequest()
@@ -58,6 +58,7 @@ public class DynamoDbSeeder
             {
                 { "Id", new AttributeValue() { S = id } },
                 { "ProductName", new AttributeValue() { S = productname } },
+                { "UnitPrice", new AttributeValue() { N = unitPrice.ToString() } },
                 { "Quantity", new AttributeValue() { N = quantity.ToString() } }
             }
         };
