@@ -40,7 +40,7 @@ public class OrderController : ControllerBase
         {
             if (createOrderRequest.ProductDetails.Count == 0)
             {
-                return BadRequest("The order details cannot be empty");
+                return BadRequest("The products details in the order cannot be empty");
             }
             await _orderService.CreateNewOrder(createOrderRequest);
 
