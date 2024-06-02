@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using Linktic.Ecommerce.OrdersManagement.Business.Interfaces;
-using Linktic.Ecommerce.OrdersManagement.Domain.Models;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Entities;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Requests;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Responses;
@@ -19,8 +18,10 @@ public class OrderService(IOrderRepository orderRepository, IProductCatalogRepos
         List<OrderResponse> orderResponses = new List<OrderResponse>();
         foreach (var order in ordersList)
         {
+            var orderDetails = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(order.Details);
+            
             OrderResponse orderResponse = new OrderResponse();
-            orderResponse.Details = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(order.Details);
+            orderResponse.Details = orderDetails;
             orderResponse.Id = order.Id;
             orderResponse.CustomerName = order.CustomerName;
             orderResponse.Total = order.Total;
