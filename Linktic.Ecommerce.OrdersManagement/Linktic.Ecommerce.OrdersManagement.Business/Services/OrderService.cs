@@ -56,28 +56,28 @@ public class OrderService(IOrderRepository orderRepository, IProductCatalogRepos
         var totalOrder = 0;
         var listOrderProducts = new List<ProductDetail>();
         
-        foreach (var product in createOrderRequest.ProductDetails)
+        foreach (var orderProduct in createOrderRequest.ProductDetails)
         {
-            var availableProduct = availableProducts.FirstOrDefault(p => p.Id == product.Id);
+            var availableProduct = availableProducts.FirstOrDefault(p => p.Id == orderProduct.Id);
             if(availableProduct != null)
             {
-                if (availableProduct.Quantity - product.Quantity < 0)
+                if (availableProduct.Quantity - orderProduct.Quantity < 0)
                 {
                     Log.Error("There aren't enough units availables for this product");
                 }
-                totalOrder = GenerateTotalOrder(product, availableProduct, listOrderProducts, totalOrder);
+                totalOrder = GenerateTotalOrder(orderProduct, availableProduct, listOrderProducts, totalOrder);
             }
         }
         return (totalOrder, listOrderProducts);
     }
 
-    private int GenerateTotalOrder(ProductDetail product, ProductDetail availableProduct, List<ProductDetail> listOrderProducts, int totalOrder)
+    private int GenerateTotalOrder(ProductDetail orderProduct, ProductDetail availableProduct, List<ProductDetail> listOrderProducts, int totalOrder)
     {
-        product.UnitPrice = availableProduct.UnitPrice;
-        product.ProductName = availableProduct.ProductName;
-        listOrderProducts.Add(product);
+        orderProduct.UnitPrice = availableProduct.UnitPrice;
+        orderProduct.ProductName = availableProduct.ProductName;
+        listOrderProducts.Add(orderProduct);
 
-        var totalProduct = ValidateProductInOrder(availableProduct, product);
+        var totalProduct = ValidateProductInOrder(availableProduct, orderProduct);
         totalOrder += totalProduct;
         return totalOrder;
     }
