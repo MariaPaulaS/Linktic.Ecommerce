@@ -1,4 +1,4 @@
-{
+﻿{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -16,13 +16,14 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Linktic.Ecommerce.ProductsCatalog.Api": {
+    "Linktic.Ecommerce.OrdersManagement.Api": {
       "commandName": "Project",
       "launchBrowser": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:50001"
+      "applicationUrl": "http://localhost:50002"
     }
   }
+
 }
