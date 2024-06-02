@@ -22,7 +22,6 @@ public class Startup
     
     public void ConfigureServices(IServiceCollection services)
     {
-        ConfigurationUtils.Initialize(Configuration);
         IoCServiceCollection.ConfigureServices(services, Configuration);
         ConfigureLogging();
         services.AddCors(o => o.AddPolicy("AllowCorsPolicy", builder =>
