@@ -1,4 +1,5 @@
 ﻿using Linktic.Ecommerce.ProductsCatalog.Domain.Models;
+using Linktic.Ecommerce.ProductsCatalog.Domain.Models.Entities;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Repositories;
 

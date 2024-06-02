@@ -8,7 +8,7 @@ public class IoCServiceCollection
     public static void ConfigureServices(IServiceCollection services)
     {
         services.ConfigureClients();
-        //services.ConfigureRepositories();
+        services.ConfigureRepositories();
         //services.ConfigureServices();
     }
 }

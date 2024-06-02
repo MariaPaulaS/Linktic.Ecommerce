@@ -8,7 +8,17 @@
 
     <ItemGroup>
       <Folder Include="Clients\" />
+      <Folder Include="Interfaces\" />
       <Folder Include="Repositories\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.303.15" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Linktic.Ecommerce.OrdersManagement.Domain\Linktic.Ecommerce.OrdersManagement.Domain.csproj" />
     </ItemGroup>
 
 </Project>

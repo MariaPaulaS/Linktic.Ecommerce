@@ -1,6 +1,6 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
 
-namespace Linktic.Ecommerce.ProductsCatalog.Domain.Models;
+namespace Linktic.Ecommerce.ProductsCatalog.Domain.Models.Entities;
 
 [DynamoDBTable("ProductsCatalog")]
 public class Product

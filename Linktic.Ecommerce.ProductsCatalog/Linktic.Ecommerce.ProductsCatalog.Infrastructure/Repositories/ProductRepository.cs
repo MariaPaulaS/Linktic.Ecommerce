@@ -2,7 +2,7 @@
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
-using Linktic.Ecommerce.ProductsCatalog.Domain.Models;
+using Linktic.Ecommerce.ProductsCatalog.Domain.Models.Entities;
 using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Clients;
 using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Repositories;
 

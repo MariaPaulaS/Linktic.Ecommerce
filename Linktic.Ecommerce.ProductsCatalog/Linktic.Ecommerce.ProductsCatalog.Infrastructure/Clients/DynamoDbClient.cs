@@ -17,6 +17,5 @@ public class DynamoDbClient(IAmazonDynamoDB dynamoDbClient) : IDatabaseClient
     public DynamoDBContext GetContext()
     {
         return new DynamoDBContext(dynamoDbClient);
-
     }
 }

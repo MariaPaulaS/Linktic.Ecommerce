@@ -1,5 +1,6 @@
 ﻿using Linktic.Ecommerce.ProductsCatalog.Business.Interfaces;
 using Linktic.Ecommerce.ProductsCatalog.Domain.Models;
+using Linktic.Ecommerce.ProductsCatalog.Domain.Models.Entities;
 using Linktic.Ecommerce.ProductsCatalog.Domain.Models.Exceptions;
 using Linktic.Ecommerce.ProductsCatalog.Domain.Models.Requests;
 using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Repositories;
