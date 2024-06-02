@@ -22,12 +22,12 @@ public class ProductService(IProductRepository productRepository) : IProductServ
 
     public async Task UpdateProductQuantity(UpdateQuantityRequest request)
     {
-        var product = await GetProductById(request.productId);
+        var product = await GetProductById(request.ProductId);
         var actualQuantity = product.Quantity;
-        var newQuantity = actualQuantity + request.numProductsToSum;
+        var newQuantity = actualQuantity + request.NumProductsToSum;
         if (newQuantity >= 0)
         {
-            await productRepository.UpdateProductQuantity(request.productId, newQuantity);
+            await productRepository.UpdateProductQuantity(request.ProductId, newQuantity);
         }
     }
 

@@ -23,54 +23,62 @@ public class OrderService(IOrderRepository orderRepository, IProductCatalogRepos
         {
             Id = Guid.NewGuid().ToString(),
             CustomerName = createOrderRequest.CustomerName,
-            Details = createOrderRequest.Details,
+            ProductDetails = createOrderRequest.ProductDetails,
             Total = 0
         };
         
-        newOrderInfo.Total = await GetTotalFromOrder(createOrderRequest, newOrderInfo);
+        var result = ValidateDataFromOrder(createOrderRequest).Result;
+        newOrderInfo.Total = result.Item1;
+        newOrderInfo.ProductDetails = result.Item2;
+
+        if (newOrderInfo.ProductDetails.Count > 0)
+        {
+            await orderRepository.CreateNewOrder(newOrderInfo);
+        }
     }
 
-    private int ValidateProductInOrder(ProductDetail product)
+    private int ValidateProductInOrder(ProductDetail availableProduct, ProductDetail orderProduct)
     {
         var updateQuantityRequest = new UpdateProductQuantityRequest()
         {
-            ProductId = product.ProductId,
-            NumProductsToSum = product.Quantity
+            ProductId = orderProduct.Id,
+            NumProductsToSum = -orderProduct.Quantity
         };
         var serializedRequest =  JsonConvert.SerializeObject(updateQuantityRequest);
         var content = new StringContent(serializedRequest, Encoding.UTF8, "application/json");
         productCatalogRepository.UpdateProductQuantity(content);
-        return product.Quantity * product.Price;
+        return orderProduct.Quantity * availableProduct.UnitPrice;
     }
-
-
-    private async Task<int> GetTotalFromOrder(CreateOrderRequest createOrderRequest, NewOrderInfo newOrderInfo)
+    
+    private async Task<(int, List<ProductDetail>)> ValidateDataFromOrder(CreateOrderRequest createOrderRequest)
     {
         var availableProducts = await productCatalogRepository.FindAvailableProducts();
         var totalOrder = 0;
+        var listOrderProducts = new List<ProductDetail>();
         
-        foreach (var product in createOrderRequest.Details)
+        foreach (var product in createOrderRequest.ProductDetails)
         {
-            if (availableProducts.Contains(product))
+            var availableProduct = availableProducts.FirstOrDefault(p => p.Id == product.Id);
+            if(availableProduct != null)
             {
-                var availableProduct = availableProducts.FirstOrDefault(p => p.ProductId == product.ProductId);
-
                 if (availableProduct.Quantity - product.Quantity < 0)
                 {
                     Log.Error("There aren't enough units availables for this product");
-                    newOrderInfo.Details.Remove(product);
                 }
-
-                var totalProduct = ValidateProductInOrder(product);
-                totalOrder += totalProduct;
-
-            }
-            else
-            {
-                newOrderInfo.Details.Remove(product);
+                totalOrder = GenerateTotalOrder(product, availableProduct, listOrderProducts, totalOrder);
             }
         }
+        return (totalOrder, listOrderProducts);
+    }
 
+    private int GenerateTotalOrder(ProductDetail product, ProductDetail availableProduct, List<ProductDetail> listOrderProducts, int totalOrder)
+    {
+        product.UnitPrice = availableProduct.UnitPrice;
+        product.ProductName = availableProduct.ProductName;
+        listOrderProducts.Add(product);
+
+        var totalProduct = ValidateProductInOrder(availableProduct, product);
+        totalOrder += totalProduct;
         return totalOrder;
     }
 }

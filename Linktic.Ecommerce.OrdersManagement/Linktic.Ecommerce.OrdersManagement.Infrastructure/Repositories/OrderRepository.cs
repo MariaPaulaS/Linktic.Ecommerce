@@ -30,7 +30,7 @@ public class OrderRepository(IDatabaseClient databaseClient, string tableName) :
 
     public async Task CreateNewOrder(NewOrderInfo newOrderInfo)
     {
-        var newOrderDetails = JsonConvert.SerializeObject(newOrderInfo.Details);
+        var newOrderDetails = JsonConvert.SerializeObject(newOrderInfo.ProductDetails);
         
         var request = new PutItemRequest()
         {

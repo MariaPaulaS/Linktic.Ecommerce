@@ -15,5 +15,5 @@ public class Order
     public string Details { get; set; }
     
     [DynamoDBProperty]
-    public int Quantity { get; set; }
+    public int Total { get; set; }
 }

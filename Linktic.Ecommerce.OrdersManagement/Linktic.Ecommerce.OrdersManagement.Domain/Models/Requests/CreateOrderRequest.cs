@@ -5,5 +5,5 @@ namespace Linktic.Ecommerce.OrdersManagement.Domain.Models.Requests;
 public class CreateOrderRequest
 {
     public string CustomerName { get; set; }
-    public List<ProductDetail> Details { get; set; }
+    public List<ProductDetail> ProductDetails { get; set; }
 }

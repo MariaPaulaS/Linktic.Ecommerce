@@ -2,8 +2,8 @@
 
 public class ProductDetail
 {
-    public string ProductId { get; set; }
+    public string Id { get; set; }
     public string? ProductName { get; set; }
     public int Quantity { get; set; }
-    public int Price { get; set; }
+    public int UnitPrice { get; set; }
 }

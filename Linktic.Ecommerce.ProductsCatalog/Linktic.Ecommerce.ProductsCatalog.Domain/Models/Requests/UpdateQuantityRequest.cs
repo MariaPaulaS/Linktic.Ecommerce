@@ -2,6 +2,6 @@
 
 public class UpdateQuantityRequest
 {
-    public string productId;
-    public int numProductsToSum;
+    public string ProductId;
+    public int NumProductsToSum;
 }
