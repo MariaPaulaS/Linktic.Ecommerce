@@ -7,11 +7,18 @@
         <Nullable>enable</Nullable>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
-
+    
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <PackageReference Include="Amazon.Extensions.Configuration.SystemsManager" Version="6.1.1" />
+        <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="9.0.0" />
+        <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.303.15" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.4" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+        <PackageReference Include="Serilog" Version="4.0.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.2-dev-00338" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="5.1.0-dev-00943" />
     </ItemGroup>
+
 
 </Project>

@@ -9,12 +9,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="Amazon.Extensions.Configuration.SystemsManager" Version="6.1.1" />
       <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="9.0.0" />
       <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.303.15" />
@@ -31,10 +25,6 @@
       <ProjectReference Include="..\Linktic.Ecommerce.ProductsCatalog.Business\Linktic.Ecommerce.ProductsCatalog.Business.csproj" />
       <ProjectReference Include="..\Linktic.Ecommerce.ProductsCatalog.Domain\Linktic.Ecommerce.ProductsCatalog.Domain.csproj" />
       <ProjectReference Include="..\Linktic.Ecommerce.ProductsCatalog.Infrastructure\Linktic.Ecommerce.ProductsCatalog.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="LocalStack\Containers\" />
     </ItemGroup>
 
 </Project>
