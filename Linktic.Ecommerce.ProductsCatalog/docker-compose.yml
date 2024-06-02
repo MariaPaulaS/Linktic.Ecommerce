@@ -1,6 +1,0 @@
-﻿services:
-  linktic.ecommerce.productscatalog.api:
-    image: linktic.ecommerce.productscatalog.api
-    build:
-      context: .
-      dockerfile: Linktic.Ecommerce.ProductsCatalog.Api/Dockerfile
