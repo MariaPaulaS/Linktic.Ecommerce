@@ -1,4 +1,5 @@
 ﻿using Linktic.Ecommerce.OrdersManagement.Api.IoCContainer;
+using Linktic.Ecommerce.OrdersManagement.Domain.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,8 @@ public class Startup
     
     public void ConfigureServices(IServiceCollection services)
     {
-        IoCServiceCollection.ConfigureServices(services);
+        ConfigurationUtils.Initialize(Configuration);
+        IoCServiceCollection.ConfigureServices(services, Configuration);
         ConfigureLogging();
         services.AddCors(o => o.AddPolicy("AllowCorsPolicy", builder =>
         {

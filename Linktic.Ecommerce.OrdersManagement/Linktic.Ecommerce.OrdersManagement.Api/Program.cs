@@ -1,6 +1,5 @@
 ﻿using Linktic.Ecommerce.OrdersManagement.Api;
 using Linktic.Ecommerce.OrdersManagement.Api.Extensions;
-using Linktic.Ecommerce.ProductsCatalog.Api;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;

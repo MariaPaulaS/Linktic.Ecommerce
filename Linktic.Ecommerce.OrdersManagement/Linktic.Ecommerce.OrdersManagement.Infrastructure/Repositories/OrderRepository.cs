@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Linktic.Ecommerce.OrdersManagement.Infrastructure.Repositories;
 
-public class OrderRepository(IDatabaseClient databaseClient) : IOrderRepository
+public class OrderRepository(IDatabaseClient databaseClient, string tableName) : IOrderRepository
 {
     private readonly DynamoDBContext _dynamoDbContext = databaseClient.GetContext();
 
@@ -34,7 +34,7 @@ public class OrderRepository(IDatabaseClient databaseClient) : IOrderRepository
         
         var request = new PutItemRequest()
         {
-            TableName = "Orders",
+            TableName = tableName,
             Item = new Dictionary<string, AttributeValue>()
             {
                 { "Id", new AttributeValue() { S = newOrderInfo.Id } },
