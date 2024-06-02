@@ -1,4 +1,5 @@
 ﻿using Linktic.Ecommerce.OrdersManagement.Business.Interfaces;
+using Linktic.Ecommerce.OrdersManagement.Domain.Models.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
@@ -23,6 +24,23 @@ public class OrderController : ControllerBase
             var productsCatalog = await _orderService.GetAllOrders();
 
             return Ok(productsCatalog);
+
+        }
+        catch (Exception e)
+        {
+            Log.Error(e,"{StackTrace} {Message}",e.StackTrace, e.Message);
+            return StatusCode(500);
+        }
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> CreateNewOrder([FromBody] CreateOrderRequest createOrderRequest)
+    {
+        try
+        {
+            await _orderService.CreateNewOrder(createOrderRequest);
+
+            return Ok();
 
         }
         catch (Exception e)

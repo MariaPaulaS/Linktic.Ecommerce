@@ -17,5 +17,14 @@ public static class RepositoriesModule
 
             return new OrderRepository(databaseClient, dynamoTableName);
         });
+
+        services.AddSingleton<IProductCatalogRepository, ProductCatalogRepository>(provider =>
+        {
+            var productsHttpClient = new HttpClient()
+            {
+                BaseAddress = new Uri(configuration.GetRequiredSection("ordersManagement")["productCatalogUrl"]!),
+            };
+            return new ProductCatalogRepository(productsHttpClient);
+        });
     }
 }
