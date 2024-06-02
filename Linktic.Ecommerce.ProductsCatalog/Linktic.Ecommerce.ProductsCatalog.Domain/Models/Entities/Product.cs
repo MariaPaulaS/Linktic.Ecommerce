@@ -10,4 +10,7 @@ public class Product
     
     [DynamoDBProperty]
     public string ProductName { get; set; }
+    
+    [DynamoDBProperty]
+    public int Quantity { get; set; }
 }

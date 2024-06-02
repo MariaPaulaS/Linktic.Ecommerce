@@ -5,4 +5,7 @@ namespace Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Repositori
 public interface IProductRepository
 {
     Task<List<Product>> GetAllProducts();
+    Task UpdateProductQuantity(string id, int newQuantity);
+    Task<Product> GetProductById(string id);
+    
 }

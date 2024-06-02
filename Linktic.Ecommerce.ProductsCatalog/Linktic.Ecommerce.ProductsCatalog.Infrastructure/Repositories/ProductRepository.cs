@@ -10,4 +10,14 @@ public class ProductRepository(IDatabaseClient databaseClient) : IProductReposit
     {
         return await databaseClient.GetItemsList();
     }
+
+    public async Task UpdateProductQuantity(string id, int newQuantity)
+    {
+        await databaseClient.UpdateItemQuantity(id, newQuantity);
+    }
+
+    public async Task<Product> GetProductById(string id)
+    {
+        return await databaseClient.GetItemById(id);
+    }
 }
