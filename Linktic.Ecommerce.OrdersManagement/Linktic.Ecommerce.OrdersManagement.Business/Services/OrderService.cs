@@ -41,9 +41,9 @@ public class OrderService(IOrderRepository orderRepository, IProductCatalogRepos
             Total = 0
         };
         
-        var result = ValidateDataFromOrder(createOrderRequest).Result;
-        newOrderInfo.Total = result.Item1;
-        newOrderInfo.ProductDetails = result.Item2;
+        var (total, updatedProductDetails) = await ValidateDataFromOrder(createOrderRequest);
+        newOrderInfo.Total = total;
+        newOrderInfo.ProductDetails = updatedProductDetails;
 
         if (newOrderInfo.ProductDetails.Count > 0)
         {
@@ -66,8 +66,8 @@ public class OrderService(IOrderRepository orderRepository, IProductCatalogRepos
     
     private async Task<(int, List<ProductDetail>)> ValidateDataFromOrder(CreateOrderRequest createOrderRequest)
     {
-        var availableProducts = await productCatalogRepository.FindAvailableProducts();
         var totalOrder = 0;
+        var availableProducts = await productCatalogRepository.FindAvailableProducts();
         var listOrderProducts = new List<ProductDetail>();
         
         foreach (var orderProduct in createOrderRequest.ProductDetails)
