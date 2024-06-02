@@ -3,6 +3,7 @@ using Linktic.Ecommerce.OrdersManagement.Business.Interfaces;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Entities;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Requests;
+using Linktic.Ecommerce.OrdersManagement.Domain.Models.Responses;
 using Linktic.Ecommerce.OrdersManagement.Infrastructure.Interfaces;
 using Linktic.Ecommerce.OrdersManagement.Infrastructure.Interfaces.Repositories;
 using Newtonsoft.Json;
@@ -12,9 +13,21 @@ namespace Linktic.Ecommerce.OrdersManagement.Business.Services;
 
 public class OrderService(IOrderRepository orderRepository, IProductCatalogRepository productCatalogRepository): IOrderService
 {
-    public async Task<List<Order>> GetAllOrders()
+    public async Task<List<OrderResponse>> GetAllOrders()
     {
-        return await orderRepository.GetAllOrders();
+        var ordersList = await orderRepository.GetAllOrders();
+        List<OrderResponse> orderResponses = new List<OrderResponse>();
+        foreach (var order in ordersList)
+        {
+            OrderResponse orderResponse = new OrderResponse();
+            orderResponse.Details = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(order.Details);
+            orderResponse.Id = order.Id;
+            orderResponse.CustomerName = order.CustomerName;
+            orderResponse.Total = order.Total;
+            orderResponses.Add(orderResponse);
+        }
+
+        return orderResponses;
     }
 
     public async Task CreateNewOrder(CreateOrderRequest createOrderRequest)
