@@ -1,5 +1,7 @@
 ﻿using Linktic.Ecommerce.OrdersManagement.Domain.Models.Entities;
+using Linktic.Ecommerce.OrdersManagement.Domain.Models.Exceptions;
 using Linktic.Ecommerce.OrdersManagement.Infrastructure.Interfaces;
+using Linktic.Ecommerce.OrdersManagement.Infrastructure.Interfaces.Repositories;
 using Newtonsoft.Json;
 using Serilog;
 
@@ -7,13 +9,14 @@ namespace Linktic.Ecommerce.OrdersManagement.Infrastructure.Repositories;
 
 public class ProductCatalogRepository (HttpClient httpClient): IProductCatalogRepository
 {
-    public async Task<List<ProductDetail>?> FindAvailableProducts()
+    public async Task<List<ProductDetail>> FindAvailableProducts()
     {
         var uri = $"{httpClient.BaseAddress}/available";
         var response = await httpClient.GetAsync(uri);
         Log.Information("Available products response: {EmailResponse}",await response.Content.ReadAsStringAsync());
         var stringResponse = await response.Content.ReadAsStringAsync();
-        return JsonConvert.DeserializeObject<List<ProductDetail>>(stringResponse);
+        
+        return JsonConvert.DeserializeObject<List<ProductDetail>>(stringResponse) ?? throw new NotEnoughProductsException();
     }
     
     public async void UpdateProductQuantity(StringContent content)

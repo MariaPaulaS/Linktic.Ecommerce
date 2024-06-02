@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using Linktic.Ecommerce.OrdersManagement.Business.Interfaces;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Entities;
+using Linktic.Ecommerce.OrdersManagement.Domain.Models.Exceptions;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Requests;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Responses;
 using Linktic.Ecommerce.OrdersManagement.Infrastructure.Interfaces;
@@ -69,7 +70,6 @@ public class OrderService(IOrderRepository orderRepository, IProductCatalogRepos
         var totalOrder = 0;
         var availableProducts = await productCatalogRepository.FindAvailableProducts();
         var listOrderProducts = new List<ProductDetail>();
-        
         foreach (var orderProduct in createOrderRequest.ProductDetails)
         {
             var availableProduct = availableProducts.FirstOrDefault(p => p.Id == orderProduct.Id);
@@ -78,6 +78,7 @@ public class OrderService(IOrderRepository orderRepository, IProductCatalogRepos
                 if (availableProduct.Quantity - orderProduct.Quantity < 0)
                 {
                     Log.Error("There aren't enough units availables for this product");
+                    throw new NotEnoughProductsException();
                 }
                 totalOrder = GenerateTotalOrder(orderProduct, availableProduct, listOrderProducts, totalOrder);
             }
