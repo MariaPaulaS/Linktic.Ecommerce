@@ -21,6 +21,7 @@
     </ItemGroup>
     
     <ItemGroup>
+      <ProjectReference Include="..\Linktic.Ecommerce.OrdersManagement.Business\Linktic.Ecommerce.OrdersManagement.Business.csproj" />
       <ProjectReference Include="..\Linktic.Ecommerce.OrdersManagement.Infrastructure\Linktic.Ecommerce.OrdersManagement.Infrastructure.csproj" />
     </ItemGroup>
 

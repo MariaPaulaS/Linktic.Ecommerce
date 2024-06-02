@@ -9,6 +9,6 @@ public class IoCServiceCollection
     {
         services.ConfigureClients();
         services.ConfigureRepositories();
-        //services.ConfigureServices();
+        services.ConfigureServices();
     }
 }
