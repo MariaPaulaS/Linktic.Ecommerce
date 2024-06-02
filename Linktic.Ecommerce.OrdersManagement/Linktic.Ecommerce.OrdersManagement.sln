@@ -3,9 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linktic.Ecommerce.OrdersManagement.Api", "Linktic.Ecommerce.OrdersManagement.Api\Linktic.Ecommerce.OrdersManagement.Api.csproj", "{345B3EA5-A61D-48D2-9B14-3D7E0B40B18C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09BFC029-F4EB-465A-831B-3D73CC32D47B}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linktic.Ecommerce.OrdersManagement.Business", "Linktic.Ecommerce.OrdersManagement.Business\Linktic.Ecommerce.OrdersManagement.Business.csproj", "{3F9E0DB5-0DD2-446F-8CF1-8884F9AFB73A}"
 EndProject
