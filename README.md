@@ -6,7 +6,7 @@ A continuación, se realizará la simulación y ejecución de la parte backend d
 
 ## 1. Descargar y configurar Nginx
 
-Nginx es un servidor web que se puede usar de forma local para simular el funcionamiento de un balanceador de carga. Con él, se usará la direccion http://localhost como si fuera una direccion DNS de un load balancer, que al consumirla permite redireccionar a cualquiera de los servicios que estén asociados a él. Dependiendo de la ruta que se consuma, el balanceador de carga redirigirá a un servicio o al otro.
+Nginx es un servidor web que se puede usar localmente para simular el funcionamiento de un balanceador de carga. Con Nginx, se puede utilizar la dirección http://localhost como si fuera una dirección DNS de un balanceador de carga. Esto permite redirigir las solicitudes a cualquiera de los servicios asociados a él. Dependiendo de la ruta que se consuma, Nginx redirigirá la solicitud al servicio correspondiente.
 
 Para poder hacer esta simulación, siga los siguientes pasos:
 
@@ -16,6 +16,11 @@ Para poder hacer esta simulación, siga los siguientes pasos:
 
 **3.** Dentro de la carpeta Nginx, ejecute el instalable, o abra un CMD y ejecute el comando **start nginx**. Cuando quiera detenerlo, abra el Administrador de tareas y detenga el programa desde allí.
 
+El archivo nginx.config contiene la siguiente configuración:
+
+![image](https://github.com/MariaPaulaS/Linktic.Ecommerce/assets/37190986/9bdc6339-7f91-43aa-84af-9efab44419de)
+
+En Nginx, se especifica la dirección a la que responde cada servidor (ProductCatalog y OrderManagement) y se configura el servidor principal que gestionará todas las peticiones, en este caso localhost en el puerto 80. Dependiendo de la ruta a la que se haga la petición, Nginx redirigirá la solicitud al servidor correspondiente.
 
 ## 2. Ejecutar LocalStack
 
@@ -36,7 +41,15 @@ Ejecute ambos proyectos de forma simultánea. Ambos usan .NET 8.0, así que aseg
 
 `dotnet run` -> Ejecuta el proyecto
 
-El proyecto de ProductCatalog corre en el puerto 50001, mientras que el de OrderManagement corre en el puerto 50002. Los proyectos contienen un archivo llamado launchSettings.json, en el cual está realizada esta configuración. De no correr en estos puertos, cambie la configuración de ejecución para que el proyecto utilice este archivo por defecto. Es importante que ambos proyectos corran en estos puertos, ya que Nginx usa estas direcciones para hacer la configuración.
+El proyecto ProductCatalog se ejecuta en el puerto 50001, mientras que OrderManagement se ejecuta en el puerto 50002. Estos puertos están configurados en el archivo launchSettings.json dentro de cada proyecto.
+
+Si los proyectos no están corriendo en estos puertos, necesitas asegurarte de que la configuración de ejecución esté utilizando el archivo launchSettings.json. Para hacerlo, sigue estos pasos en tu IDE:
+
+**1.**  Antes de ejecutar el proyecto, haz clic en "Editar configuración de ejecución".
+
+**2.** Asegúrate de que la configuración de ejecución esté utilizando el archivo launchSettings.json.
+
+Es crucial que ambos proyectos se ejecuten en estos puertos, ya que Nginx está configurado para redirigir las solicitudes a estas direcciones.
 
 Una vez hecho esto, podrá usar la colección de Postman adjunta en el repositorio para consumir los diferentes endpoints. Importe la colección desde Postman, y sobre la misma de clic derecho y seleccione "View Documentation". Allí podrá ver la forma de uso de los diferentes métodos con sus posibles respuestas.
 
