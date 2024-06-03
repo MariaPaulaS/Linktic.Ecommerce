@@ -67,7 +67,7 @@ Si los proyectos no están corriendo en estos puertos, necesita asegurarse de qu
 
 Es crucial que ambos proyectos se ejecuten en estos puertos, ya que Nginx está configurado para redirigir las solicitudes a estas direcciones.
 
-Una vez hecho esto, podrá usar la colección de Postman adjunta en el repositorio para consumir los diferentes endpoints. Importe la colección desde Postman, y sobre la misma de clic en los tres puntos adyacentes, para luego seleccioanr "View Documentation". Allí podrá ver la forma de uso de los diferentes métodos con sus posibles respuestas.
+Una vez hecho esto, podrá usar la colección de Postman adjunta en el repositorio para consumir los diferentes endpoints. Importe la colección desde Postman, y sobre la misma de clic en los tres puntos adyacentes, para luego seleccionar "View Documentation". Allí podrá ver la forma de uso de los diferentes métodos con sus posibles respuestas.
 
 ## Información adicional
 
