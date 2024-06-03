@@ -28,7 +28,7 @@ Para poder hacer esta simulación, siga los siguientes pasos:
 
 **2.** Dirijase a la ruta Nginx/conf, y reemplace el archivo nginx.conf por el archivo adjunto en el repositorio.
 
-**3.** Dentro de la carpeta Nginx, ejecute la aplicación dando doble clic al archivo nginx, o abra un CMD y ejecute el comando **start nginx**. Cuando quiera detenerlo, abra el Administrador de tareas y detenga el programa desde allí.
+**3.** Dentro de la carpeta Nginx, ejecute la aplicación dando doble clic al archivo nginx, o abra un CMD y ejecute el comando **start nginx**, y revise en el administrador de tareas que nginx está corriendo correctamente. Si es asi, ya podrá usar nginx como balanceador de carga. En caso de que quiera detenerlo, abra el Administrador de tareas y detenga el programa desde allí.
 
 El archivo nginx.config contiene la siguiente configuración:
 
