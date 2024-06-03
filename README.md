@@ -30,9 +30,11 @@ Con esto se descargará la imagen de LocalStack y se ejecutará un contenedor qu
 
 Ejecute ambos proyectos de forma simultánea. Ambos usan .NET 8.0, así que asegúrese de tenerlo instalado. Es necesario tener instalado un IDE configurado con .NET 8.0, o por el contrario, vaya a la carpeta Api de cada proyecto y ejecute los siguientes comandos:
 
-`dotnet restore`
-`dotnet build `
-`dotnet run`
+`dotnet restore` -> Restaura las dependencias del proyecto
+
+`dotnet build ` -> Compila el proyecto
+
+`dotnet run` -> Ejecuta el proyecto
 
 El proyecto de ProductCatalog corre en el puerto 50001, mientras que el de OrderManagement corre en el puerto 50002. Los proyectos contienen un archivo llamado launchSettings.json, en el cual está realizada esta configuración. De no correr en estos puertos, cambie la configuración de ejecución para que el proyecto utilice este archivo por defecto. Es importante que ambos proyectos corran en estos puertos, ya que Nginx usa estas direcciones para hacer la configuración.
 
