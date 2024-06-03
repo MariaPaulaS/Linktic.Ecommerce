@@ -12,5 +12,13 @@ public static class ConfigurationExtension
         await DynamoDbSeeder.PopulateProductsCatalogTable();
         Log.Information("Ready to run!");
     }
+    
+    public static void ConfigureParameterStore(this IConfigurationBuilder configuration)
+    {
+        if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Testing")
+            return;
+
+        configuration.AddSystemsManager("/ecommerce", TimeSpan.FromSeconds(500));
+    }
 
 }

@@ -8,7 +8,7 @@ using Linktic.Ecommerce.ProductsCatalog.Infrastructure.Interfaces.Repositories;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Infrastructure.Repositories;
 
-public class ProductRepository(IDatabaseClient databaseClient) : IProductRepository
+public class ProductRepository(IDatabaseClient databaseClient, string tableName) : IProductRepository
 {
     private readonly DynamoDBContext _dynamoDbContext = databaseClient.GetContext();
     
@@ -32,7 +32,7 @@ public class ProductRepository(IDatabaseClient databaseClient) : IProductReposit
     {
         var request = new UpdateItemRequest
         {
-            TableName = "ProductsCatalog",
+            TableName = tableName,
             Key = new Dictionary<string, AttributeValue>
             {
                 { "Id", new AttributeValue { S = id } }

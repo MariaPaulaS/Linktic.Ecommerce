@@ -27,4 +27,10 @@
       <ProjectReference Include="..\Linktic.Ecommerce.ProductsCatalog.Infrastructure\Linktic.Ecommerce.ProductsCatalog.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="appsettings.Development.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
