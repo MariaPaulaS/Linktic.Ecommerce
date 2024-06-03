@@ -9,7 +9,7 @@ public class ProductNotFoundException : Exception
     
     public ProductNotFoundException()
     {
-        StatusCode = HttpStatusCode.NotFound;
+        StatusCode = HttpStatusCode.NoContent;
         CustomMessage = "The product doesn't exist in the catalog";
     }
 }

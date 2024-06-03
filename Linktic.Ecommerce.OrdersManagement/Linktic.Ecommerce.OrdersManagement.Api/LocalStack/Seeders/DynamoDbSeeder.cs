@@ -42,8 +42,8 @@ public class DynamoDbSeeder
 
     public static async Task PopulateOrdersTable()
     {
-        await PutItemIntoOrdersTable("1", "Maria Sabogal", "", 10000);
-        await PutItemIntoOrdersTable("2", "Mateo Aponte", "", 10000);
+        await PutItemIntoOrdersTable("1", "Maria Sabogal", "[{\"Id\":\"1\",\"ProductName\":\"Star necklace\",\"Quantity\":\"3\",\"UnitPrice\":\"10000\"},{\"Id\":\"4\",\"ProductName\":\"Red checkered jacket\",\"Quantity\":\"1\",\"UnitPrice\":\"35000\"}]", 65000);
+        await PutItemIntoOrdersTable("2", "Mateo Aponte", "[{\"Id\":\"2\",\"ProductName\":\"Leaf earrings\",\"Quantity\":\"3\",\"UnitPrice\":\"10000\"},{\"Id\":\"3\",\"ProductName\":\"Blue checkered jacket\",\"Quantity\":\"1\",\"UnitPrice\":\"45000\"}]", 75000);
     }
     
     private static async Task PutItemIntoOrdersTable(string id, string customerName, string details, int total)

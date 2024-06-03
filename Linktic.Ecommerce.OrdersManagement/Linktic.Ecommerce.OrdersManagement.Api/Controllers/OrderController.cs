@@ -1,4 +1,5 @@
 ﻿using Linktic.Ecommerce.OrdersManagement.Business.Interfaces;
+using Linktic.Ecommerce.OrdersManagement.Domain.Models.Exceptions;
 using Linktic.Ecommerce.OrdersManagement.Domain.Models.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
@@ -46,6 +47,11 @@ public class OrderController : ControllerBase
 
             return Ok();
 
+        }
+        catch (NotEnoughProductsException e)
+        {
+            Log.Error(e,"{StackTrace} {Message}",e.StackTrace, e.Message);
+            return StatusCode(500, "There are not enough products available to continue with the order");
         }
         catch (Exception e)
         {

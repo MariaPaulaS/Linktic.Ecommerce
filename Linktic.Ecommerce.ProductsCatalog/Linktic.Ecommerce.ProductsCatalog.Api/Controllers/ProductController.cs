@@ -1,10 +1,8 @@
-﻿using System.Net;
+﻿using Amazon.AppConfigData.Model;
 using Linktic.Ecommerce.ProductsCatalog.Business.Interfaces;
 using Linktic.Ecommerce.ProductsCatalog.Domain.Models.Exceptions;
 using Linktic.Ecommerce.ProductsCatalog.Domain.Models.Requests;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Serilog;
 
 namespace Linktic.Ecommerce.ProductsCatalog.Api.Controllers;
@@ -64,6 +62,11 @@ public class ProductController : ControllerBase
             return Ok(product);
 
         }
+        catch (ProductNotFoundException e)
+        {
+            Log.Error(e,"{StackTrace} {Message}",e.StackTrace, e.Message);
+            return NotFound("The product was not found in the catalog");
+        }
         catch (Exception e)
         {
             Log.Error(e,"{StackTrace} {Message}",e.StackTrace, e.Message);
@@ -81,6 +84,11 @@ public class ProductController : ControllerBase
 
             return Ok();
 
+        }
+        catch (ProductNotFoundException e)
+        {
+            Log.Error(e,"{StackTrace} {Message}",e.StackTrace, e.Message);
+            return NotFound("The product was not found in the catalog");
         }
         catch (Exception e)
         {

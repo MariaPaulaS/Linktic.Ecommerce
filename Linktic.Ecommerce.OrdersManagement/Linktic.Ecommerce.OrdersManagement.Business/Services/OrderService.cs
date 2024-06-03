@@ -82,6 +82,10 @@ public class OrderService(IOrderRepository orderRepository, IProductCatalogRepos
                 }
                 totalOrder = GenerateTotalOrder(orderProduct, availableProduct, listOrderProducts, totalOrder);
             }
+            else
+            {
+                throw new NotEnoughProductsException();
+            }
         }
         return (totalOrder, listOrderProducts);
     }

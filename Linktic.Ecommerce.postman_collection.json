@@ -1,0 +1,718 @@
+{
+	"info": {
+		"_postman_id": "46f480f1-5096-45fa-91b6-d2f4d8f7056c",
+		"name": "Linktic.Ecommerce",
+		"description": "Bienvenidos a la coleccion de Ecommerce de Linktic. Con esta colección se puede consumir el proyecto de prueba, el cual se encarga de manejar y administrar productos con las funcionalidades básicas.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ProductCatalog",
+			"item": [
+				{
+					"name": "Get products in catalog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product"
+							]
+						},
+						"description": "Este método permite ver todos los productos registrados en el catálogo."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"1\",\n        \"productName\": \"Star necklace\",\n        \"unitPrice\": 10000,\n        \"quantity\": 23\n    },\n    {\n        \"id\": \"4\",\n        \"productName\": \"Red checkered jacket\",\n        \"unitPrice\": 35000,\n        \"quantity\": 0\n    }\n]"
+						},
+						{
+							"name": "200 OK - No products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "500 Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/product",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.6.1\",\n    \"title\": \"An error occurred while processing your request.\",\n    \"status\": 500,\n    \"traceId\": \"00-15044393b51dcd239f180e3e30d45db8-a17ee4a230887c13-00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get available products in catalog",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/product/available",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product",
+								"available"
+							]
+						},
+						"description": "Este método permite ver todos los productos registrados en el catálogo que tengan unidades disponibles para su venta."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/product/available",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"available"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"1\",\n        \"productName\": \"Star necklace\",\n        \"unitPrice\": 10000,\n        \"quantity\": 23\n    }\n]"
+						},
+						{
+							"name": "200 OK - No products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/product/available",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"available"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[]"
+						},
+						{
+							"name": "500 Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/product/available",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"available"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.6.1\",\n    \"title\": \"An error occurred while processing your request.\",\n    \"status\": 500,\n    \"traceId\": \"00-15044393b51dcd239f180e3e30d45db8-a17ee4a230887c13-00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get product in catalog by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/product/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product",
+								"1"
+							]
+						},
+						"description": "Este método busca un producto específico en el catálogo según el id del producto."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/product/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"id\": \"1\",\n    \"productName\": \"Star necklace\",\n    \"unitPrice\": 10000,\n    \"quantity\": 26\n}"
+						},
+						{
+							"name": "404  Not found - Product not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/product/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"6"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "The product was not found in the catalog"
+						},
+						{
+							"name": "500 Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/product/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.6.1\",\n    \"title\": \"An error occurred while processing your request.\",\n    \"status\": 500,\n    \"traceId\": \"00-15044393b51dcd239f180e3e30d45db8-a17ee4a230887c13-00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update stock of a product in catalog",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ProductId\": \"4\",\r\n    \"NumProductsToSum\":1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/product/quantity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"product",
+								"quantity"
+							]
+						},
+						"description": "Este método permite registrar más o menos existencias de un producto existente en el catálogo.\n\n```json\n{\n  \"ProductId\": \"Id del producto\",\n  \"NumProductsToSum\": Cantidad de unidades a aumentar en el stock \n(si el número es negativo, reduce unidades)\n}\n```"
+					},
+					"response": [
+						{
+							"name": "200 OK - Add stock",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ProductId\": \"4\",\r\n    \"NumProductsToSum\":1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/product/quantity",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"quantity"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "200 OK - Reduce stock",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ProductId\": \"4\",\r\n    \"NumProductsToSum\":-1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/product/quantity",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"quantity"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "404  Not found - Product not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ProductId\": \"6\",\r\n    \"NumProductsToSum\":1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/product/quantity",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"quantity"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "The product was not found in the catalog"
+						},
+						{
+							"name": "500 Internal Server Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ProductId\": \"4\",\r\n    \"NumProductsToSum\":1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/product/quantity",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"quantity"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.6.1\",\n    \"title\": \"An error occurred while processing your request.\",\n    \"status\": 500,\n    \"traceId\": \"00-15044393b51dcd239f180e3e30d45db8-a17ee4a230887c13-00\"\n}"
+						}
+					]
+				}
+			],
+			"description": "En esta carpeta se pueden encontrar los métodos que permiten administrar el catálogo de productos."
+		},
+		{
+			"name": "OrderManagement",
+			"item": [
+				{
+					"name": "List all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Este método permite ver todas las órdenes que el ecommerce tiene hasta el momento."
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"1\",\n        \"customerName\": \"Maria Sabogal\",\n        \"details\": [\n            {\n                \"Id\": \"1\",\n                \"ProductName\": \"Star necklace\",\n                \"Quantity\": \"3\",\n                \"UnitPrice\": \"10000\"\n            },\n            {\n                \"Id\": \"4\",\n                \"ProductName\": \"Red checkered jacket\",\n                \"Quantity\": \"1\",\n                \"UnitPrice\": \"35000\"\n            }\n        ],\n        \"total\": 65000\n    },\n    {\n        \"id\": \"2\",\n        \"customerName\": \"Mateo Aponte\",\n        \"details\": [\n            {\n                \"Id\": \"2\",\n                \"ProductName\": \"Leaf earrings\",\n                \"Quantity\": \"3\",\n                \"UnitPrice\": \"10000\"\n            },\n            {\n                \"Id\": \"3\",\n                \"ProductName\": \"Blue checkered jacket\",\n                \"Quantity\": \"1\",\n                \"UnitPrice\": \"45000\"\n            }\n        ],\n        \"total\": 75000\n    }\n]"
+						},
+						{
+							"name": "200 OK - No orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "[]"
+						},
+						{
+							"name": "500 Internal Server Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ProductId\": \"4\",\r\n    \"NumProductsToSum\":1\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/product/quantity",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"product",
+										"quantity"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.6.1\",\n    \"title\": \"An error occurred while processing your request.\",\n    \"status\": 500,\n    \"traceId\": \"00-15044393b51dcd239f180e3e30d45db8-a17ee4a230887c13-00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create new order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CustomerName\": \"Daniel Mejia\",\r\n    \"ProductDetails\":[\r\n        {\r\n            \"Id\": \"1\",\r\n            \"Quantity\": \"3\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Este método registra una nueva órden en el ecommerce, a nombre de un cliente, con el detalle de cada producto dentro de la órden: el id del producto y la cantidad de ese producto a comprar.\n```json\n{\n  \"CustomerName\": Nombre del cliente\n  \"ProductDetails\": Lista de productos en la orden\n   [\n    {\n      \"Id\": Id del producto\n      \"Quantity\": Cantidad de unidades\n    }\n  ]\n}\n```"
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"CustomerName\": \"Daniel Mejia\",\r\n    \"ProductDetails\":[\r\n        {\r\n            \"Id\": \"1\",\r\n            \"Quantity\": \"3\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "500 Internal Server Error - Insufficient stock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"CustomerName\": \"Daniel Mejia\",\r\n    \"ProductDetails\":[\r\n        {\r\n            \"Id\": \"1\",\r\n            \"Quantity\": \"3\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "There are not enough products available to continue with the order"
+						},
+						{
+							"name": "500 Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"CustomerName\": \"Daniel Mejia\",\r\n    \"ProductDetails\":[\r\n        {\r\n            \"Id\": \"1\",\r\n            \"Quantity\": \"3\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"order"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.6.1\",\n    \"title\": \"An error occurred while processing your request.\",\n    \"status\": 500,\n    \"traceId\": \"00-15044393b51dcd239f180e3e30d45db8-a17ee4a230887c13-00\"\n}"
+						}
+					]
+				}
+			],
+			"description": "En esta carpeta se pueden encontrar los métodos que permiten administrar de forma simple el manejo de órdenes en el e-commerce, cubriendo los métodos básicos como crear y listar órdenes."
+		}
+	]
+}
