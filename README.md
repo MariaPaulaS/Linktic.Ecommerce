@@ -34,7 +34,7 @@ El archivo nginx.config contiene la siguiente configuración:
 
 ![image](https://github.com/MariaPaulaS/Linktic.Ecommerce/assets/37190986/9bdc6339-7f91-43aa-84af-9efab44419de)
 
-En Nginx, se especifica la dirección a la que responde cada servidor (**linktic_ecommerce_product_server** correspondiendo al servicio de catálogo de productos, y **linktic_ecommerce_order_server** al manejo de pedidos)  y se configura el servidor principal que gestionará todas las peticiones, en este caso localhost en el puerto 80. Dependiendo de la ruta a la que se haga la petición, Nginx redirigirá la solicitud al servidor correspondiente.
+En Nginx, se especifica la dirección a la que responde cada servidor (correspondiendo **linktic_ecommerce_product_server** al servicio de catálogo de productos, y **linktic_ecommerce_order_server** al manejo de pedidos)  y se configura el servidor principal que gestionará todas las peticiones, en este caso localhost en el puerto 80. Dependiendo de la ruta a la que se haga la petición, Nginx redirigirá la solicitud al servidor correspondiente.
 
 ## 2. Ejecutar LocalStack
 
