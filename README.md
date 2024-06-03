@@ -45,15 +45,15 @@ Es necesario tener instalado un IDE configurado con .NET 8.0, o por el contrario
 
 El proyecto ProductCatalog se ejecuta en el puerto 50001, mientras que OrderManagement se ejecuta en el puerto 50002. Estos puertos están configurados en el archivo launchSettings.json dentro de cada proyecto.
 
-Si los proyectos no están corriendo en estos puertos, necesitas asegurarte de que la configuración de ejecución esté utilizando el archivo launchSettings.json. Para hacerlo, sigue estos pasos en tu IDE:
+Si los proyectos no están corriendo en estos puertos, necesita asegurarse de que la configuración de ejecución esté utilizando el archivo launchSettings.json. Para hacerlo, siga estos pasos en el IDE:
 
-**1.**  Antes de ejecutar el proyecto, haz clic en "Editar configuración de ejecución".
+**1.**  Antes de ejecutar el proyecto, haga clic en "Editar configuración de ejecución".
 
-**2.** Asegúrate de que la configuración de ejecución esté utilizando el archivo launchSettings.json.
+**2.** Asegurese de que la configuración de ejecución esté utilizando el archivo launchSettings.json.
 
 Es crucial que ambos proyectos se ejecuten en estos puertos, ya que Nginx está configurado para redirigir las solicitudes a estas direcciones.
 
-Una vez hecho esto, podrá usar la colección de Postman adjunta en el repositorio para consumir los diferentes endpoints. Importe la colección desde Postman, y sobre la misma de clic derecho y seleccione "View Documentation". Allí podrá ver la forma de uso de los diferentes métodos con sus posibles respuestas.
+Una vez hecho esto, podrá usar la colección de Postman adjunta en el repositorio para consumir los diferentes endpoints. Importe la colección desde Postman, y sobre la misma de clic en los tres puntos adyacentes, para luego seleccioanr "View Documentation". Allí podrá ver la forma de uso de los diferentes métodos con sus posibles respuestas.
 
 ## Información adicional
 
