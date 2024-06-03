@@ -28,10 +28,10 @@ Para ejecutar LocalStack, primero necesita tener instalado Docker en su sistema.
 
 **docker run --rm -it -p 127.0.0.1:4566:4566 -p 127.0.0.1:4510-4559:4510-4559 -v /var/run/docker.sock:/var/run/docker.sock localstack/localstack**
 
-Con esto se descargará la imagen de LocalStack y se ejecutará un contenedor que permitirá simular los servicios de AWS necesarios para realizar la prueba. Cuando el contenedor se detenga, toda la información almacenada en él se eliminará, como los datos guardados en base de datos y tablas entre otros. Cada proyecto se encarga de crear información y poblar datos en LocalStack, por lo que es importante que el contenedor esté corriendo antes de la ejecución de estos.
+Con esto se descargará la imagen de LocalStack y se ejecutará un contenedor que permitirá simular los servicios de AWS necesarios para realizar la prueba. Cuando el contenedor se detenga, toda la información almacenada en él se eliminará, como los datos guardados en base de datos y tablas entre otros. Cada servicio backend se encarga de crear información y poblar datos en LocalStack, por lo que es importante que el contenedor esté corriendo antes de la ejecución de estos.
 
 
-## 3. Ejecutar los proyectos
+## 3. Ejecutar los servicios backend
 
 Ejecute ambos proyectos de forma simultánea. Ambos usan .NET 8.0, así que asegúrese de tenerlo instalado. De no tenerlo, puede instalarlo desde aqui: https://dotnet.microsoft.com/es-es/download/dotnet/8.0
 
