@@ -11,7 +11,9 @@ Nginx es un servidor web que se puede usar de forma local para simular el funcio
 Para poder hacer esta simulación, siga los siguientes pasos:
 
 **1.** Descargue Nginx y guarde el contenido del .zip descargado en el disco local C, o en alguna otra dirección accesible. Puede descargarlo desde https://nginx.org/en/download.html
+
 **2.** Dirijase a la ruta Nginx/conf, y reemplace el archivo nginx.conf por el archivo adjunto en el repositorio.
+
 **3.** Dentro de la carpeta Nginx, ejecute el instalable, o abra un CMD y ejecute el comando **start nginx**. Cuando quiera detenerlo, abra el Administrador de tareas y detenga el programa desde allí.
 
 
