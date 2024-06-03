@@ -593,7 +593,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"CustomerName\": \"Daniel Mejia\",\r\n    \"ProductDetails\":[\r\n        {\r\n            \"Id\": \"1\",\r\n            \"Quantity\": \"3\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"CustomerName\": \"Daniel Mejia\",\r\n    \"ProductDetails\":[\r\n        {\r\n            \"Id\": \"1\",\r\n            \"Quantity\": 3\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
