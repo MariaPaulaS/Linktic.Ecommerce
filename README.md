@@ -33,7 +33,9 @@ Con esto se descargará la imagen de LocalStack y se ejecutará un contenedor qu
 
 ## 3. Ejecutar los proyectos
 
-Ejecute ambos proyectos de forma simultánea. Ambos usan .NET 8.0, así que asegúrese de tenerlo instalado. Es necesario tener instalado un IDE configurado con .NET 8.0, o por el contrario, vaya a la carpeta Api de cada proyecto y ejecute los siguientes comandos:
+Ejecute ambos proyectos de forma simultánea. Ambos usan .NET 8.0, así que asegúrese de tenerlo instalado. De no tenerlo, puede instalarlo desde aqui: https://dotnet.microsoft.com/es-es/download/dotnet/8.0
+
+Es necesario tener instalado un IDE configurado con .NET 8.0, o por el contrario, vaya a la carpeta Api de cada proyecto y ejecute los siguientes comandos:
 
 `dotnet restore` -> Restaura las dependencias del proyecto
 
@@ -55,4 +57,4 @@ Una vez hecho esto, podrá usar la colección de Postman adjunta en el repositor
 
 ## Información adicional
 
-Aunque esto no es esencial para que el proyecto se ejecute localmente, los proyectos tienen la configuración necesaria para desplegarse en lambdas normales, en un caso hipotético en el que se usara ECR para el almacenamiento del código. Esto puede verse en la configuración de los Dockerfile de cada proyecto, y el LambdaEntryPoint, que es la configuración que el proyecto usaría para ejecutarse si estuviera desplegado en una lambda de AWS.
+Aunque esto no es esencial para que el proyecto se ejecute localmente, los proyectos tienen la configuración necesaria para desplegarse en lambdas normales de AWS, en un caso hipotético en el que se usara ECR para el almacenamiento del código. Esto puede verse en la configuración de los Dockerfile de cada proyecto, y el LambdaEntryPoint, que es la configuración que el proyecto usaría para ejecutarse si estuviera desplegado en una lambda de AWS.
