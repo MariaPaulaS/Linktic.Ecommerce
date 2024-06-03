@@ -2,6 +2,18 @@
 
 Este proyecto simula un e-commerce simplificado que permite manejar un catálogo de productos y pedidos de los clientes sobre esos mismos productos.
 
+En el repositorio se incluyen los siguientes archivos:
+
+**1. Linktic.Ecommerce.OrdersManagement** -> Proyecto que contiene el microservicio para el manejo de pedidos dentro del ecommerce.
+**2. Linktic.Ecommerce.ProductsCatalog** -> Proyecto que contiene el microservicio para el manejo del catálogo de productos.
+**3. Linktic.Ecommerce.postman_collection.json** -> Colección de Postman desde la cual se pueden ejecutar los diferentes endpoints de la simulación. También se puede ver la documentación de cada uno. 
+**4. LocalStack cmd.txt** -> Comando para ejecutar LocalStack
+**5. nginx.conf** -> Archivo para la configuración de Nginx
+**6. Arquitectura de E-commerce.pdf** -> Documento que explica y sustenta la arquitectura escogida para el proyecto
+**7. E-commerce architecture.png** -> Imagen de la arquitectura del e-commerce
+
+**Antes de continuar, por favor primero lea el documento explicativo sobre la arquitectura escogida para más información.**
+
 A continuación, se realizará la simulación y ejecución de la parte backend de la arquitectura propuesta, lo que incluye el balanceador de carga y la ejecución de las lambdas, junto con el consumo a DynamoDB. Para realizar la simulación completa, siga los siguientes pasos:
 
 ## 1. Descargar y configurar Nginx
